@@ -31,7 +31,7 @@ app.use(
 			objectSrc: "'none'",
 			styleSrc: ["'self'", "'unsafe-inline'", 'https:', 'http:'],
 			imgSrc: ["'self'", 'https:', 'data:'],
-			connectSrc: ["'self'", 'https://api.ipify.org/'],
+			connectSrc: ["'self'"],
 		},
 	})
 );
