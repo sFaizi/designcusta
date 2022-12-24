@@ -1,0 +1,116 @@
+extends base
+block content 
+  .home
+    .home_hero
+      .home_hero_cap
+        h1.home_hero_cap--text1 We restructure your ideas into real beauty 
+        p.home_hero_cap--text2 Just share your thoughts | Leave the rest to us
+        a.home_hero_cap--btn(href="/contact") Get quotation
+      .home_hero_illus
+        img.home_hero_illus--img(src="/images/illustrations/heroImg.png" alt="A person developing website")
+      p.home_hero_desc Custom Website Developers and Graphic Designers
+
+    .home_callBack
+      form#callback.home_callBack_form(enctype="multipart/form-data")
+        .home_callBack_form_name
+          input#clbName.home_callBack_form_name--input(type="text" placeholder="Your name please")
+          label.home_callBack_form_name--label(for="clbName") Your name please
+        .home_callBack_form_phone
+          input#clbPhone.home_callBack_form_phone--input(type="number" placeholder="Your contact number")
+          label.home_callBack_form_phone--label(for="clbPhone") Your contact number
+        button.home_callBack_form--submit(type="submit" for="callback") Get a callback
+      
+    .home_working
+      h1.home_working--heading Let's Shake hands 
+      img.home_working--aeroplane(src="/images/illustrations/paper_plane.png" alt="paper-plane")
+      svg.home_working--path
+        path#path1(d="M293.3,0c81.13-.74,164.4,12.12,238.05,52.13,66.32,36,124.1,96.09,151.28,172.86,32.58,92.06,17.44,200.54-29.65,284.34s-123.18,144-206,178.45c-61.4,25.5-120.06,37.62-185.55,40.14-61.69,2.38-127.69,2.79-181.73,40.95C26.26,806.62-5.53,879.62.8,950")
+      .home_working_circuit
+        .home_working_circuit_discuss
+          img.home_working_circuit_discuss--img(src="/images/illustrations/discuss.png" alt="Discussing website design")
+          h1.home_working_circuit_discuss--cap Discuss your idea
+          p.home_working_circuit_discuss--brief Let us know about your website, web-app, graphic, or any other related work or idea. We will sort out the best possible product for you. Connect with us through our E-mail, WhatsApp, use our form, or let's meet at our office.
+
+        .home_working_circuit_dealing
+          img.home_working_circuit_dealing--img(src="/images/illustrations/deal.png" alt="Dealing and pricing")
+          h1.home_working_circuit_dealing--cap Know your pricing and duration
+          p.home_working_circuit_dealing--brief We will quickly respond to you back with the pricing details, duration and other necessities required to finish up the task. If required we might discuss any modification.
+        .home_working_circuit_done
+          img.home_working_circuit_done--img(src="/images/illustrations/launch.png" alt="Launch website")
+          h1.home_working_circuit_done--cap Have a nice day
+          p.home_working_circuit_done--brief Your product will be delivered to you within the given period. Launch it! And don't forget to share your experience with us.
+
+    .home_servicesWeProvide
+      h1.home_servicesWeProvide--heading Services in demand
+      a.home_servicesWeProvide__container(href="/services")
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#web_dev")
+          .home_servicesWeProvide__container__icon--heading Web development (custom)
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#shopping")
+          .home_servicesWeProvide__container__icon--heading E-commerce
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#school_web")
+          .home_servicesWeProvide__container__icon--heading School website
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#brand_web")
+          .home_servicesWeProvide__container__icon--heading Brand showcase
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#web_upgrade")
+          .home_servicesWeProvide__container__icon--heading Upgrade or repair
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#brochure")
+          .home_servicesWeProvide__container__icon--heading Brochure     
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#logo_dsn")
+          .home_servicesWeProvide__container__icon--heading Logo Design
+        .home_servicesWeProvide__container__icon
+          svg.home_servicesWeProvide__container__icon--svg
+            use(xlink:href="/images/outline.svg#visit_card")   
+          .home_servicesWeProvide__container__icon--heading Visiting card      
+      a.home_servicesWeProvide--cta(href="/services") View All 
+    
+    .home_whyUs
+      h1.home_whyUs--heading Why are we your well-wishers?
+      p3.home_whyUs--info Apart from listening to your ideas, we also restructure and redesign your concepts to match your present and futuristic goals. We do high quality, stable coding. As we are custom developers, each and every small, big, visible or hidden part of the product is under our operation. We have discussion sessions in between development for better productivity. Even if you do not have any clue about how you wish your product to be, don't worry, just leave it to us. Believe us, you will leave us with a smile.
+    
+    .home_blogs
+      .home_blogs_item
+        .home_blogs_item
+    
+    .home_skills
+      h1.home_skills--heading Our blood is pumped up with;
+      .home_skills-icon
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#html5")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#adobe_illustrator")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#pug")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#sass")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#mongoose")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#express")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#javaScript")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#anime")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#nodejs")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#mongoDB")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#react")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#adobe_photoshop")
+        svg.home_skills-icon--svg
+          use(xlink:href="/images/icons.svg#css")

@@ -1,0 +1,36 @@
+extends base 
+block content 
+  //- MIXIN Statistics
+  mixin stats(cap, info, cls)
+    .cpanel_stats_box_capsule
+      p.cpanel_stats_box_capsule--info(class=cls)= info
+      p.cpanel_stats_box_capsule--caption= cap
+  //- MIXIN Sections
+  mixin sec(cap, svg, link)
+    a.cpanel_sec_box_capsule(href=link)
+      svg.cpanel_sec_box_capsule--svg
+        use(xlink:href=svg)
+      p.cpanel_sec_box_capsule--text= cap
+
+  .cpanel
+    .cpanel_stats
+      h1.cpanel_stats--heading Summary
+      .cpanel_stats--logout.admin--logout Logout
+      .cpanel_stats_box
+        +stats('All messages', totalMsg)
+        +stats('Unread messages', allUnread)
+        +stats('Latest message', latestMsg, 'latestMsg')
+        +stats('Last activity', lastActivity, 'lastActivity')
+        +stats('Total visitors', visits)
+        +stats('Saw terms', sawTerms)
+        +stats('Contacts', contacts)
+        +stats('Active projects', 0)
+    .cpanel_sec
+      h1.cpanel_sec--heading All sections
+      .cpanel_sec_box
+        +sec('Clients with budget', '/images/outline.svg#client_budget', "/client-budget?limit=30&page=1")
+        +sec('Clients', '/images/outline.svg#client', "/clients?limit=30&page=1")
+        +sec('Direct emails', '/images/outline.svg#direct_mail', "/directMails?limit=30&page=1")
+        +sec('Callback contacts', '/images/outline.svg#visit_card', "/contacts?limit=30&page=1")
+        +sec('Career counciling', '/images/outline.svg#career', "/c-panel")
+        +sec('Admin settings', '/images/outline.svg#settings', "/set")

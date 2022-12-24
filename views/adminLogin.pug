@@ -1,0 +1,14 @@
+extends base 
+block content 
+  .adminLogin
+    h1.adminLogin--heading Administrator login
+    form#loginForm.adminLogin_form
+      .adminLogin_form_user
+        input#user.adminLogin_form_user--input(type="text" placeholder="Unique identification code" required)
+        label.adminLogin_form_user--label(for="user") Unique identification code
+      
+      .adminLogin_form_pass
+        input#pass.adminLogin_form_pass--input(type="password" placeholder="Password" required)
+        label.adminLogin_form_pass--label(for="pass") Password
+
+      button.adminLogin_form--btn(type="submit" for="loginForm") Login

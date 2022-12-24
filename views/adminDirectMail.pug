@@ -1,0 +1,65 @@
+extends base 
+block content 
+  .directMail
+    h1.directMail--heading.admin--heading From @designcusta.com
+    a.directMail--home.admin--home(href="/c-panel") Admin home
+    .directMail--logout.admin--logout Logout
+
+    .directMail_paginate.pagination
+      -const totalRes = docLength
+      -const limit = limitStr || 30
+      -const pageTotal = Math.ceil(totalRes / limit)
+      -const pageNo = Number(page)
+
+      ul.pagination__ul
+        -let num = 0
+        li.pagination__ul--li
+          a.pagination__ul--li-left(href=`?limit=${limit}&page=${pageNo > 1 ? (pageNo - 1) : 1}`) New
+        while num < pageTotal
+          -num++
+          li.pagination__ul--li(class=`${pageNo == num ? 'pagination_active' : ''}`)
+            a.pagination__ul--li-a(href=`?limit=${limit}&page=${num}`)= num
+        li.pagination__ul--li
+          a.pagination__ul--li-right(href=`?limit=${limit}&page=${pageNo < num ? (pageNo + 1) : num}`) Old
+
+    table.table.directMail_table
+      tr.table_row
+        th.table_row--head Name
+        th.table_row--head E-mail
+        th.table_row--head Subject
+        th.table_row--head Date
+        th.table_row--head Read status
+        th.table_row--head Remove
+      each data in doc 
+        tr.table_row
+          td.table_row--body= data.name
+          td.table_row--body= data.email
+          td.table_row--body= data.subject
+          td.table_row--body= new Date(data.createdAt).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})
+          td.table_row--body.viewDirectMail(data-identity= data.id data-name=data.name data-email=data.email data-subject=data.subject data-to=data.to data-text=data.text data-attachments=data.attachments data-reply=data.replies data-received=data.createdAt)= `${data.readStatus ? 'Read' : 'View (unread)'}`
+          td.table_row--body.removeDirectMail(data-delete= data.id) X
+
+    .directMail_view
+      h2.directMail_view--head Client details
+      .directMail_view--closer X
+      .directMail_view_identity
+        h4.directMail_view_identity--name Name
+        h4.directMail_view_identity--mail e-mail
+        h4.directMail_view_identity--subject Subject
+        h4.directMail_view_identity--to To
+      .directMail_view_msg
+        pre.directMail_view_msg--text Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, reprehenderit enim quisquam explicabo, quidem perspiciatis cumque a quae obcaecati molestias necessitatibus incidunt, repudiandae rem illum fugiat soluta architecto omnis? Doloribus.
+      .directMail_view_samples
+        //- img#dmImg1.directMail_view_samples--img(src="/images/logos/dc_logo.png", alt="sample1")
+        //- img#dmImg2.directMail_view_samples--img(src="/images/logos/dc_logo.png", alt="sample2")
+        //- img#dmImg3.directMail_view_samples--img(src="/images/logos/dc_logo.png", alt="sample3")
+      .directMail_view--closer X
+      form#DMReply.directMail_view_reply
+        input.directMail_view_reply--subject(placeholder="Subject" required)
+        textarea.directMail_view_reply--msg(placeholder="Message" rows="5" required)
+        button.directMail_view_reply--btn(for="DMReply" type="submit") Reply
+      .directMail_view_past
+        h2.directMail_view_past--head --------- Past replies (reload for fresh) ---------
+        .directMail_view_past_reply
+          h4.directMail_view_past_reply--subject Subject
+          p.directMail_view_past_reply--msg Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus ipsam eos animi ea. Iure modi quia incidunt illo cum non eos! Sed omnis eos ea atque iste? Similique, a.

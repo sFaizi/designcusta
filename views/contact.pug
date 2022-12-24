@@ -1,0 +1,58 @@
+extends base 
+block content 
+
+  .contact
+    h1.contact--heading Hello...
+    .contact_direct
+      .contact_direct_whatsapp
+        svg.contact_direct_whatsapp--svg
+          use(xlink:href="/images/outline.svg#whatsApp")
+        a.contact_direct_whatsapp--text(href="/#callback") Get a callback
+      .contact_direct_mail
+        svg.contact_direct_mail--svg
+          use(xlink:href="/images/outline.svg#email")
+        a.contact_direct_mail--text(href="mailto:contact@designcusta.com") contact@designcusta.com
+    
+    .contact_seperate -------Or-------
+
+    form#contact_us.contact_form(enctype="multipart/form-data")
+      .contact_form_name
+        input#contact_name.contact_form_name--input(type="text" placeholder="Full name" required)
+        label.contact_form_name--label(for="contact_name") Full name
+      
+      .contact_form_email
+        input#contact_email.contact_form_email--input(type="email" placeholder="Email address" required)
+        label.contact_form_email--label(for="contact_email") Email address 
+      
+      .contact_form_phone
+        input#contact_phone.contact_form_phone--input(type="number" placeholder="Contact number")
+        label.contact_form_phone--label(for="contact_phone") Contact number 
+      
+      .contact_form_describe
+        textarea#contact_describe.contact_form_describe--input(type="text" placeholder="Describe work" required)
+        label.contact_form_describe--label(for="contact_describe" rows="5") Describe work 
+      
+      h4.contact_form--imgHead Upload 3 screenshots or images (total size of all images together less than 800kb) related to your description. 
+
+      .contact_form_sample
+        input#contact_sample1.contact_form_sample--input(type="file" accept="image/jpeg" name="sample_1" required)
+        label.contact_form_sample--label(for="contact_sample1") Choose
+      
+      .contact_form_sample
+        input#contact_sample2.contact_form_sample--input(type="file" accept="image/jpeg" name="sample_2")
+        label.contact_form_sample--label(for="contact_sample2") Choose
+      
+      .contact_form_sample
+        input#contact_sample3.contact_form_sample--input(type="file" accept="image/jpeg" name="sample_3")
+        label.contact_form_sample--label(for="contact_sample3") Choose
+
+      .contact_form_captcha
+        .contact_form_captcha--expression Solve the expression;
+        .contact_form_captcha--captcha 4 + 2 =
+        input#cntCaptcha.contact_form_captcha--ans(type="text" placeholder="Your answer" required)
+        svg.contact_form_captcha--reload 
+          use(xlink:href="/images/outline.svg#reload" alt="reload")
+        input#cntNorobot.contact_form_captcha--norobo(type="checkbox")
+        label.contact_form_captcha--label(for="cntNorobot") I am not robot
+      
+      button.contact_form--btn(for="contact_us" type="submit") Send

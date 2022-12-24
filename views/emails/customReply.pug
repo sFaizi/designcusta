@@ -1,0 +1,20 @@
+extends baseEmail
+block content
+  table.bdgtHeader(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    thead 
+      tr.bdgtHeaderCells 
+        td= `${subject ? subject : 'Greetings from Designcusta 🎉'}`
+        td
+          img.mailLogo(src="cid:uniq-dc_logo.png" width="150px")
+  table.bdgtBody(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td= `Hi ${name ? name : 'customer'},`
+      tr
+        td 
+          pre= `${message ? message : 'Message....'}`
+      tr
+        td(style="padding-top: 6px;") Thank you,
+          span
+            br
+            | Designcusta

@@ -1,0 +1,39 @@
+extends baseEmail
+block content
+  table.bdgtHeader(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    thead 
+      tr.bdgtHeaderCells 
+        td= `${subject ? subject : 'Greetings from Designcusta 🎉'}` 
+        td
+          img.mailLogo(src="cid:uniq-dc_logo.png" width="150px")
+  table.bdgtBody(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td= `Hi ${name ? name : 'Friend'},`
+      tr
+        td= `Your total budget is starting from ₹${message.total}/-. Your detailed description is as follows:`
+      tr 
+        td 
+          table.bdgtServices(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody 
+              tr
+                th(style="border-bottom: 2px solid #06a978;")  Services 
+                th(style="border-bottom: 2px solid #06a978;")  Starting Price @
+              each data in message.serv
+                tr.serviceListRow  
+                  td= data[0] 
+                  td= `₹${data[1]}/-`
+      tr
+        td
+          p We will contact you back and will discuss over the chosen services.
+      tr
+        td(style="padding-top: 6px;") Thank you,
+          span
+            br
+            | Designcusta
+      tr
+        td
+          p If you need any help related to our services, please don't hesitate to contact us from our website!
+      tr
+        td
+          p Please do not reply to this email as it is computer-generated.

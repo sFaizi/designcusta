@@ -1,0 +1,60 @@
+extends base 
+block content 
+  .clientBdgt
+    h1.clientBdgt--heading.admin--heading Clients with budget
+    a.clientBdgt--home.admin--home(href="/c-panel") Admin home
+    .clientBdgt--logout.admin--logout Logout
+
+    .clientBdgt_paginate.pagination
+      -const totalRes = docLength
+      -const limit = limitStr || 30
+      -const pageTotal = Math.ceil(totalRes / limit)
+      -const pageNo = Number(page)
+
+      ul.pagination__ul
+        -let num = 0
+        li.pagination__ul--li
+          a.pagination__ul--li-left(href=`?limit=${limit}&page=${pageNo > 1 ? (pageNo - 1) : 1}`) New
+        while num < pageTotal
+          -num++
+          li.pagination__ul--li(class=`${pageNo == num ? 'pagination_active' : ''}`)
+            a.pagination__ul--li-a(href=`?limit=${limit}&page=${num}`)= num
+        li.pagination__ul--li
+          a.pagination__ul--li-right(href=`?limit=${limit}&page=${pageNo < num ? (pageNo + 1) : num}`) Old
+
+    table.table.clientBdgt_table
+      tr.table_row
+        th.table_row--head Name
+        th.table_row--head E-mail
+        th.table_row--head Phone
+        th.table_row--head Dated
+        th.table_row--head Read status
+        th.table_row--head Remove
+      each data in docs 
+        tr.table_row
+          td.table_row--body= data.name
+          td.table_row--body= data.email
+          td.table_row--body= data.phone
+          td.table_row--body= new Date(data.createdAt).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})
+          td.table_row--body.viewBdgClient(data-identity= data.id data-name=data.name data-email=data.email data-phone=data.phone data-web=data.allWebCharges data-graphic=data.allGraphicCharges data-reply=data.replies data-received=data.createdAt)= `${data.readStatus ? 'Read' : 'View (unread)'}`
+          td.table_row--body.removeBdgClient(data-delete= data.id) X
+
+    .clientBdgt_view
+      h2.clientBdgt_view--head Client with budget details
+      .clientBdgt_view--closer X
+      .clientBdgt_view_identity
+        h3.clientBdgt_view_identity--received Received
+        h3.clientBdgt_view_identity--name Name
+        h3.clientBdgt_view_identity--mail Email
+        h3.clientBdgt_view_identity--phone Phone
+      .clientBdgt_view_webBudget
+        h3.clientBdgt_view_webBudget--head Web services
+      .clientBdgt_view_graphicBudget
+        h3.clientBdgt_view_graphicBudget--head Graphic services
+      .clientBdgt_view--seprator
+      form#clntBdgtReply.clientBdgt_view_reply
+        input.clientBdgt_view_reply--subject(placeholder="Subject" required)
+        textarea.clientBdgt_view_reply--msg(placeholder="Message" rows="5" required)
+        button.clientBdgt_view_reply--btn(for="clntBdgtReply" type="submit") Reply
+      .clientBdgt_view_past
+        h2.clientBdgt_view_past--head --------- Past replies (reload for fresh) ---------

@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+	head
+		//- Required meta tags
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		meta(name="description" content="Designcusta, a graphic designing and web development service provider. We develop almost all kinds of custom website as we are full stack web developers. As well as we have proficiency in graphic desigining.")
+		meta(name = "keywords" content="website development, custom website, graphic design, website reapair, website upgrade, logo design, website design in hyderabad, website design in india, web developer in hyderabad")
+		meta(name="robots" content="index, follow")
+		link(rel="canonical" href="http://www.designcusta.com/")
+		link(rel="stylesheet" href="/css/style.css")
+		link(rel="icon" type="image/png" href="/images/logos/favicon.png")
+		title Designcusta | #{title}
+		
+		// Google tag (gtag.js)
+		script(async='' src='https://www.googletagmanager.com/gtag/js?id=AW-11028397078')
+		script.
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'AW-11028397078');
+
+		// Event snippet for Website lead conversion page
+		script.
+			gtag('event', 'conversion', {'send_to': 'AW-11028397078/PYeACOLW34UYEJb434op'});
+
+	body#moveTop
+		.offer(data-stat=`${locals.offerStat}` data-msg=locals.offerMsg)
+			//- .offer_box
+			//- 	.offer_box--msg Message
+			//- 	.offer_box--x X
+
+		//- NAVIGATION
+		include _navigation
+
+		block content
+
+		//- Footer
+		include _footer
+		script(src="/js/bundle.js" type="text/javascript")

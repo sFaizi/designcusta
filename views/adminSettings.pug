@@ -1,0 +1,50 @@
+extends base
+block content 
+  mixin switch(name, id, checkStatus)
+    label.settings_action_switch=name
+      if checkStatus
+        input.settings_action_switch--check(type="checkbox" id=id checked="checked")
+      else
+        input.settings_action_switch--check(type="checkbox" id=id)
+      span.settings_action_switch--trigger &nbsp;
+
+  mixin userList(user, date, id, role)
+    .settings_user_list_cred
+      p.settings_user_list_cred--user= user
+      p.settings_user_list_cred--date= new Date(date).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})
+      if role == 'custer'
+        button.settings_user_list_cred--del(data-id=id) X
+      else
+        button.settings_user_list_cred--del(disabled="disabled") X
+
+  .settings
+    .settings--heading.admin--heading Administrator settings
+    a.settings--home.admin--home(href="/c-panel") Admin home
+    .settings--logout.admin--logout Logout
+
+    .settings_action
+      +switch('Show offer', 'offer_switch', offerSet)
+      +switch('Switch 2', 'switch_2', false)
+      +switch('Switch 3', 'switch_3', false)
+    
+    form.settings_offer(enctype="multipart/form-data" data-status=`${offerSet}`)
+      input#offer_msg.settings_offer--msg(type="text" placeholder="Write offer message")
+      label.settings_offer--label(for="offer_msg") Write offer message
+      button.settings_offer--save(type="submit" for="offer_msg") Save
+    
+    form#custerForm.settings_user(enctype="multipart/form-data")
+      .settings_user--heading Control credentials
+      .settings_user_id
+        input#userID.settings_user_id--input(type="text" placeholder="(New / Old) user ID" name="userName" required)
+        label.settings_user_id--label(for="userID") (New / Old) user ID
+      .settings_user_newPass
+        input#userPassNew.settings_user_newPass--input(type="password" placeholder="New Password" name="newPass" required)
+        label.settings_user_newPass--label(for="userPassNew") New Password
+      .settings_user_oldPass
+        input#userPassOld.settings_user_oldPass--input(type="password" placeholder="(Confirm / Old) Password" name="oldPass" required)
+        label.settings_user_oldPass--label(for="userPassOld") (Confirm / Old) Password
+      button.settings_user_submit(type="submit" for="custerForm") Submit
+      .settings_user_list
+        each data in cred
+          +userList(data.userID, data.createdAt, data._id, data.role)
+        

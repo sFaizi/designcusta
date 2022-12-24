@@ -1,0 +1,103 @@
+extends base
+block content 
+  mixin webcase(title, logo, webpage, description, link)
+    .pf_web_case
+      .pf_web_case_logo
+        if !logo == ''
+          img.pf_web_case_logo--img(src=logo alt=title)
+        else
+          svg.pf_web_case_logo--svg
+            use(xlink:href="/images/icons.svg#dc_logo")
+      .pf_web_case_webpages
+        a.pf_web_case_webpages_a(href=link)
+          img.pf_web_case_webpages_a--img(src=webpage, alt=title)
+      .pf_web_case_info= description
+      a.pf_web_case_link(href=link) View live
+  mixin logoSQ(title, src)
+    .pf_graphic_logosSQ_case
+      img.pf_graphic_logosSQ_case--imgSQ(src=src, alt=title)
+  mixin logoRECT(title, src)
+    .pf_graphic_logosRCT_case
+      img.pf_graphic_logosRCT_case--imgRECT(src=src, alt=title)
+  
+  
+  .pf
+    .pf_heading Key highlights
+    
+    .pf_nav
+      .pf_nav--cap Jump to -
+      a.pf_nav--web(href="#web") Web Section
+      a.pf_nav--graphic(href="#graphic") Graphic Section
+      //- a.pf_nav--geo(href="#geo") Geology Section
+    
+    .pf_web
+      h1#web.pf_web--head Web crafts
+      +webcase('purepainterz', '/portfolios/portfolio-purepainterz/brand-logo.svg', "/portfolios/portfolio-purepainterz/display.png", "Get the most out of your living space by decorating it with an exceptional, attractive, and optimized look. Among best Painting Service Provider in Hyderabad. Pure painterz has employed highly experienced Professionals to handle various managerial works at several perspectives.......", "http://purepainterz.in/")
+
+      +webcase('natours', '/portfolios/portfolio-natours/img/logo-green-1x.png', "/portfolios/portfolio-natours/img/display.png", "A basic model of a tour website. Presenting tours in a simple and attractive way gets attention of audience. This website emphasizes on adventurous tours. It contains brief description of tours along with its guide. A direct booking facility is also available. Simple animations are applied to make the surfing joyful.", "/portfolios/portfolio-natours/index.html")
+
+      +webcase('bankist', "/portfolios/portfolio-bankist/img/logo.png", "/portfolios/portfolio-bankist/img/display.png", "A demonstration of basic banking website. It's a platform that enables the customers to carry out their banking activities from their desktop, aided by the power and convenience of the Internet. Funds transfer between accounts. Truly smart services to cover most of the banking transactions.", "/portfolios/portfolio-bankist/index.html")
+
+      +webcase('nexter', '/portfolios/portfolio-nexter/img/logo.png', "/portfolios/portfolio-nexter/img/display.png", "A beautiful and descriptive way of presenting your luxurious hotel. Highlighting the exotic features. A beautiful presentation makes a must visit for customers. A smart arrangement of the detailed content makes the website trust worthy.", "/portfolios/portfolio-nexter/index.html")
+
+      +webcase('budgety', '', "/portfolios/portfolio-budget/display.png", "A simple web app to calculate the total budget. Its just a basic example of a web app. This app can be further enhanced or developed with more custom requirements. Similar apps or any app, whatever you can imagine, all web apps can be developed here.", "/portfolios/portfolio-budget/index.html")
+      
+      +webcase('dice_game', '', "/portfolios/portfolio-dice game/display.png", "A dice game. Similar apps can be integrated with any website. Give a try, have fun.", "/portfolios/portfolio-dice game/index.html")
+    
+    .pf_graphic
+      h1#graphic.pf_graphic--head Graphics
+      .pf_graphic_logosSQ
+        +logoSQ('ICWA', "/portfolios/logos/ICWA.png")
+        +logoSQ('GeoatheneumLogo', "/portfolios/logos/Geoatheneum Logo.png")
+        +logoSQ('woodenImpero', "/portfolios/logos/woodenImpero.png")
+        +logoSQ('VIPNET', "/portfolios/logos/VIPNET.png")
+        +logoSQ('GemImpero', "/portfolios/logos/GemImpero.png")
+        +logoSQ('AdabeMushairah', "/portfolios/logos/AdabeMushairah.png")
+        +logoSQ('DirectorateOfEstates', "/portfolios/logos/DirectorateOfEstates.png")
+        +logoSQ('GraficBracket', "/portfolios/logos/Grafic & Bracket.png")
+        +logoSQ('geoForever', "/portfolios/logos/geoForever.png")
+        +logoSQ('geotech', "/portfolios/logos/geotech.png")
+        +logoSQ('NAPPDAR', "/portfolios/logos/NAPPDAR.png")
+        +logoSQ('purepainterz2', "/portfolios/logos/purepainterz2.png")
+        +logoSQ('TestLevel', "/portfolios/logos/Test Level.png")
+      .pf_graphic_logosRCT
+        +logoRECT('EnglishMatters', "/portfolios/logos/English Matters.png")
+        +logoRECT('designcusta', "/portfolios/logos/designcusta.png")
+        +logoRECT('sartajdesigns', "/portfolios/logos/sartajdesigns.png")
+        +logoRECT('purepainterz', "/portfolios/logos/purepainterz.png")
+    
+    //- .pf_geol
+    //-   h1#geo.pf_geol--head Geological section
+    //-   .pf_geol_bio
+    //-     h1.pf_geol_bio--h Dissertation
+    //-     h2.pf_geol_bio--sub-h Institute
+    //-     p.pf_geol_bio--p ONGC Energy Centre
+    //-     h2.pf_geol_bio--sub-h Title
+    //-     p.pf_geol_bio--p Exploration of secondary mineralization of sub-surface Uranium in Jambusar-Broach block, Cambay Basin
+    //-     a(href="/contact").pf_geol_bio--link Contact for reading dissertation
+
+    //-     h1.pf_geol_bio--h Geological Excursions
+    //-     p.pf_geol_bio--p Field training at Udaipur and Neem ka Thana, Rajasthan, India, in the year of 2019 (Subjected to Mineral exploration)
+    //-     //- a(href="/docs/rajasthan_report.pdf").pf_geol_bio--link Read field report
+    //-     p.pf_geol_bio--p Field training at Himachal Pradesh, India, in the year of 2018 (Subjected to Palaeontology)
+    //-     //- a(href="/docs/uttarakhand_report.pdf").pf_geol_bio--link Read field report
+    //-     p.pf_geol_bio--p Field training at Jaipur, Rajasthan, India, in the year of 2017 (B.Sc. final year program)
+    //-     //- a(href="/docs/jaipur_report.pdf").pf_geol_bio--link Read field report
+        
+    //-     h1.pf_geol_bio--h Field Related Skills
+    //-     p.pf_geol_bio--p Plain Table Survey (Radial & Intersection)
+    //-     p.pf_geol_bio--p Prismatic Compass Survey (Open & Closed)
+    //-     p.pf_geol_bio--p Sextant (Height measurement of accessible and inaccessible objects)
+    //-     p.pf_geol_bio--p Dumpy Level Survey Stereographic Net Projections 
+    //-     p.pf_geol_bio--p Ground Penetrating Radar Usage (Introductory level)
+    //-     p.pf_geol_bio--p Core-logs study
+        
+    //-     h1.pf_geol_bio--h Laboratory Skills
+    //-     p.pf_geol_bio--p Petrology
+    //-     p.pf_geol_bio--p Microscopes
+    //-     p.pf_geol_bio--p Radiation Check Meter
+    //-     p.pf_geol_bio--p Hand-held XRF Machine
+    //-     p.pf_geol_bio--p Pulveriser Digester
+    //-     br
+    //-     br
+    //-     a(href="/contact").pf_geol_bio--link Contact for resume

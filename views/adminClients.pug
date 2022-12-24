@@ -1,0 +1,64 @@
+extends base 
+block content 
+  .client
+    h1.client--heading.admin--heading Clients
+    a.client--home.admin--home(href="/c-panel") Admin home
+    .client--logout.admin--logout Logout
+
+    .client_paginate.pagination
+      -const totalRes = docLength
+      -const limit = limitStr || 30
+      -const pageTotal = Math.ceil(totalRes / limit)
+      -const pageNo = Number(page)
+
+      ul.pagination__ul
+        -let num = 0
+        li.pagination__ul--li
+          a.pagination__ul--li-left(href=`?limit=${limit}&page=${pageNo > 1 ? (pageNo - 1) : 1}`) New
+        while num < pageTotal
+          -num++
+          li.pagination__ul--li(class=`${pageNo == num ? 'pagination_active' : ''}`)
+            a.pagination__ul--li-a(href=`?limit=${limit}&page=${num}`)= num
+        li.pagination__ul--li
+          a.pagination__ul--li-right(href=`?limit=${limit}&page=${pageNo < num ? (pageNo + 1) : num}`) Old
+
+    table.table.client_table
+      tr.table_row
+        th.table_row--head Name
+        th.table_row--head E-mail
+        th.table_row--head Phone
+        th.table_row--head Dated
+        th.table_row--head Read status
+        th.table_row--head Remove
+      each data in docs
+        tr.table_row
+          td.table_row--body= data.name
+          td.table_row--body= data.email
+          td.table_row--body= data.phone
+          td.table_row--body= new Date(data.createdAt).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})
+          td.table_row--body.clientViewData(data-identity= data.id data-name=data.name data-mail= data.email data-phone= data.phone data-des=data.describe data-photos=data.samples data-reply=data.replies data-date=data.createdAt)= `${data.readStatus ? 'Read' : 'View (unread)'}`
+          td.table_row--body.removeClientData(data-delete= data.id) X
+
+    .client_view
+      h2.client_view--head Client details
+      .client_view--closer X
+      .client_view_identity
+        h4.client_view_identity--name Name
+        h4.client_view_identity--mail e-mail
+        h4.client_view_identity--phone Contact number
+      .client_view_msg
+        p.client_view_msg--describe Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, reprehenderit enim quisquam explicabo, quidem perspiciatis cumque a quae obcaecati molestias necessitatibus incidunt, repudiandae rem illum fugiat soluta architecto omnis? Doloribus.
+      .client_view_samples
+        //- img#img1.client_view_samples--img(src="/images/logos/dc_logo.png", alt="sample1")
+        //- img#img2.client_view_samples--img(src="/images/logos/dc_logo.png", alt="sample2")
+        //- img#img3.client_view_samples--img(src="/images/logos/dc_logo.png", alt="sample3")
+      .client_view--closer X
+      form#clientReply.client_view_reply
+        input.client_view_reply--subject(placeholder="Subject" required)
+        textarea.client_view_reply--msg(placeholder="Message" rows="5" required)
+        button.client_view_reply--btn(for="clientReply" type="submit") Reply
+      .client_view_past
+        h2.client_view_past--head --------- Past replies (reload for fresh) ---------
+        .client_view_past_reply
+          h4.client_view_past_reply--subject Subject
+          p.client_view_past_reply--msg Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel possimus ipsam eos animi ea. Iure modi quia incidunt illo cum non eos! Sed omnis eos ea atque iste? Similique, a.

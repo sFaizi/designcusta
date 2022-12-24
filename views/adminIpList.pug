@@ -1,0 +1,34 @@
+extends base
+block content 
+  .ip
+    h1.ip--heading.admin--heading Tracked IP Addresses
+    a.ip--home.admin--home(href="/c-panel") Admin home
+    .ip--logout.admin--logout Logout
+    
+    .ip_paginate.pagination
+      -const totalRes = docLength
+      -const limit = limitStr || 30
+      -const pageTotal = Math.ceil(totalRes / limit)
+      -const pageNo = Number(page)
+
+      ul.pagination__ul
+        -let num = 0
+        li.pagination__ul--li
+          a.pagination__ul--li-left(href=`?limit=${limit}&page=${pageNo > 1 ? (pageNo - 1) : 1}`) New
+        while num < pageTotal
+          -num++
+          li.pagination__ul--li(class=`${pageNo == num ? 'pagination_active' : ''}`)
+            a.pagination__ul--li-a(href=`?limit=${limit}&page=${num}`)= num
+        li.pagination__ul--li
+          a.pagination__ul--li-right(href=`?limit=${limit}&page=${pageNo < num ? (pageNo + 1) : num}`) Old
+          
+    table.table.ip_table
+      tr.table_row
+        th.table_row--head Page
+        th.table_row--head IP Address
+        th.table_row--head Date
+      each data in doc 
+        tr.table_row
+          td.table_row--body= data.page
+          td.table_row--body= data.ip
+          td.table_row--body= new Date(data.createdAt).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})

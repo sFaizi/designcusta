@@ -1,0 +1,38 @@
+mixin links(url, link)
+  a.navbar_links-anchor(href= url)= link
+
+mixin minilinks(url, link)
+  li.miniNav_ul_li
+    a.miniNav_ul_li--a(href=url)= link
+
+.miniNavTag
+  img.miniNavTag--img(src="/images/logos/dc_logo.png" alt="logo")
+.miniNav
+  input#miniNav.miniNav--check(type="checkbox", name="miniNav")
+  label.miniNav--checkLabel(for="miniNav") 
+    span.miniNav--checkLabel_span &nbsp;
+  img.miniNav--logo(src="/images/logos/favicon.png" alt="logo")
+  .miniNav--background(target="span_back")
+  ul.miniNav_ul
+    +minilinks('/', 'Home')
+    +minilinks('/services', 'Services-Pricing')
+    +minilinks('/portfolio', 'Portfolio')
+    +minilinks('/graphic-blog', 'Design-blog')
+    +minilinks('/webDev-blog', 'Web Dev-blog')
+    //- +minilinks('/about', 'About me')
+    +minilinks('/contact', 'Contact')
+
+nav.navbar
+  a.navbar_logo(href='/')
+    svg.navbar_logo-svg
+      use(xlink:href="/images/icons.svg#dc_logo")
+    svg.navbar_logo-svg2
+      use(xlink:href="/images/icons.svg#dc_colour_logo")
+  .navbar_links
+    +links('/', 'Home')
+    +links('/services', 'Services-Pricing')
+    +links('/portfolio', 'Portfolio')
+    +links('/graphic-blog', 'Design-blog')
+    +links('/webDev-blog', 'Web Dev-blog')
+    //- +links('/about', 'About me')
+    +links('/contact', 'Contact')

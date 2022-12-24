@@ -1,0 +1,139 @@
+extends base
+block content
+  //- if no price fill up with discuss
+  mixin web(img, price, page_price, caption, checkboxID, brief)
+    .services_list_web_capsule
+      svg.services_list_web_capsule--icon
+        use(xlink:href=img)
+      h3.services_list_web_capsule--name= caption
+      p.services_list_web_capsule--brief= brief
+      if price == 'discuss'
+        a.services_list_web_capsule_price--checkLabel(href="/contact") contact us
+      else
+        .services_list_web_capsule_price
+          input.services_list_web_capsule_price--check(type="checkbox", name="webServiceCharge" id=checkboxID value=price)
+          label.services_list_web_capsule_price--checkLabel(for=checkboxID)= `starting @ ₹${price}/-`
+        .services_list_web_capsule_page
+          if page_price == 'No'
+            p.services_list_web_capsule_page--tag No additional page
+          else
+            p.services_list_web_capsule_page--tag(data-price=`${page_price}`)= `Additional page @ ₹${page_price}/-`
+            .services_list_web_capsule_page--minus -
+            .services_list_web_capsule_page--count Add page
+            .services_list_web_capsule_page--plus +
+
+  mixin graphic(img, price, caption, checkboxID, brief)
+    .services_list_graphic_capsule
+      svg.services_list_graphic_capsule--icon
+        use(xlink:href=img)
+      h3.services_list_graphic_capsule--name= caption
+      p.services_list_graphic_capsule--brief= brief
+      if price == 'discuss'
+        a.services_list_graphic_capsule_price--checkLabel(href="/contact") contact us
+      else
+        .services_list_graphic_capsule_price
+          input.services_list_graphic_capsule_price--check(type="checkbox", name="graphicServiceCharge" id=checkboxID value=price)
+          label.services_list_graphic_capsule_price--checkLabel(for=checkboxID)= `starting @ ₹${price}/-`
+          
+  .services
+    h1.services--heading At your ease...
+    .services_list
+      input#webRadio.services_list--webRadio(type="radio", name="toggleServices")
+      label.services_list--webRadio_label(for="webRadio") Web Services
+      input#graphicRadio.services_list--graphicRadio(type="radio", name="toggleServices")
+      label.services_list--graphicRadio_label(for="graphicRadio") Graphic Services
+
+      .services_list_web
+        //- +graphic(img, price, page_price, caption, checkboxID, brief)
+        +web("/images/outline.svg#brand_web", '2950', '400', 'Brand showcase', 'brand_showcase', 'Let the world know your brand on just few clicks away. Minimum duration to build is 1 month.')
+      
+        +web("/images/outline.svg#shopping", 'discuss', 'No', 'E-commerce', 'e_commerce', 'Buy and sell tangible goods, digital products or services online.')
+        
+        +web("/images/outline.svg#geo", 'discuss', 'No', 'Geology app', 'geology_app', 'Get a server-based application for any geological field.')
+        
+        +web("/images/outline.svg#landingpage", '3000', 'No', 'Landing page', 'landing_page', 'A single standalone smart page or minimalistic end to end solution. Minimum duration to build is 2 weeks.')
+        
+        +web("/images/outline.svg#blog", '5200', '1460', 'Personal blog', 'personal_blog', 'Regularly keep the world updated with your personal work. Minimum duration to build is 2 months.')
+        
+        +web("/images/outline.svg#portfolio", '3900', '300', 'Portfolio', 'portfolio', 'An ultimate way to showcase work and let others know your professionalism and dedication to the craft. Minimum duration to build is 2 weeks.')
+        
+        +web("/images/outline.svg#school_web", '6500', '500', 'School website', 'school_website', 'Let your knowledge-centre be known to the world. Reach out all the public with smart information. Minimum duration to build is 3 weeks.')
+        
+        +web("/images/outline.svg#social_web", 'discuss', 'No', 'Social Networking', 'social_networking', 'Get build a social network website or maintain a portal within an organization.')
+
+        +web("/images/outline.svg#web_app", '8,500', 'No', 'Web application', 'web_application', 'Enhance the website interactivity or provide instant custom app solutions with the power of JavaScript. Minimum duration to build is 2 weeks.')
+        
+        +web("/images/outline.svg#web_dev", 'discuss', 'No', 'Web development (custom)', 'web_development_(custom)', "Any other custom website that you don't relate any of them provided here. Contact us with the provided methods.")
+        
+        +web("/images/outline.svg#web_upgrade", 'discuss', 'No', 'Upgrade or repair', 'upgrade_or_repair', 'Repair or upgrade any part or whole of your website under our experienced technologies.')
+        
+        +web("/images/outline.svg#erp", 'discuss', 'No', 'Enterprise Resource Planning', 'enterprise_resource_planning', 'Get your realtime information and resource management in highly ordered fashion.')
+
+      .services_list_graphic
+        //- +graphic(img, price, caption, brief, checkboxID)
+        +graphic("/images/outline.svg#book", '1000', 'Book Cover', 'book_cover', 'Describe your book at a single glance.')
+
+        +graphic("/images/outline.svg#brochure", '4100', 'Brochure', 'brochure', 'Reach out the public with well descriptive and designed brochure.')
+
+        +graphic("/images/outline.svg#collage", '1500', 'Collage', 'collage', 'Let\'s bring all the admirations together.')
+        
+        +graphic("/images/outline.svg#calender", '7300', 'Calendar', 'calendar', 'Get a formal ornament, calendar for table or wall mounted, or any custom shape.')
+  
+        +graphic("/images/outline.svg#geo", '4500', 'Geological work', 'geological_work', 'All kinds of graphical work for geological sciences.')
+        
+        +graphic("/images/outline.svg#icon", '960', 'Icon', 'icon', 'Icon-pack of 5 icons from your existing logos or new thematic icon-pack.')
+        
+        +graphic("/images/outline.svg#image_repair", '3800', 'Image repair', 'image_repair', 'Modify, repair your old and new images.')
+        
+        +graphic("/images/outline.svg#illustrate", '4500', 'Illustration', 'illustrate', 'Share your imagination, we will illustrate.')
+        
+        +graphic("/images/outline.svg#letterhead", '2100', 'Letter head', 'letter_head', 'A unique design appropriate and suitable for your profession.')
+        
+        +graphic("/images/outline.svg#logo_dsn", '1300', 'Logo', 'logo', 'Let us roll your words and thoughts into a symbol.')
+        
+        +graphic("/images/outline.svg#photoshopping", '3400', 'Photoshop work', 'photoshop_work', 'Any kind of editing in photoshop.')
+        
+        +graphic("/images/outline.svg#poster", '1600', 'Poster', 'poster', 'Tell the world you have something to share. Standout in the crowd with your design.')
+
+        +graphic("/images/outline.svg#visit_card", '750', 'Visiting card', 'visiting_card', 'Brief your status into 3.5" x 2".')
+              
+      p.services_list_conditions All the above charges are without hosting and only of development and designing, except where hosting is mentioned. If the height of the page exceeds 4000px further charges will apply.
+ 
+    .services_total
+      p.services_total--graphic_charge= `Charges from graphic services ₹ 0/-`
+      p.services_total--web_charge= `Charges from web services ₹ 0/-`
+      h3.services_total--head Your budget starting from: 
+      p.services_total--amount= `₹ 0/-`
+    
+    .services_request
+      h1.services_request--heading We will respond you back...
+      form#serviceForm.services_request_form
+        .services_request_form_name
+          input#name.services_request_form_name--input(type="text" placeholder="Your full name" required)
+          label.services_request_form_name--label(for="name") Your full name
+
+        .services_request_form_email
+          input#email.services_request_form_email--input(type="email" placeholder="Your email address" required)
+          label.services_request_form_email--label(for="email") Your email address
+        
+        .services_request_form_phone
+          input#phone.services_request_form_phone--input(type="number" placeholder="Your contact number")
+          label.services_request_form_phone--label(for="phone") Your contact number
+        
+        .services_request_form_captcha
+          .services_request_form_captcha--expression Solve the expression;
+          .services_request_form_captcha--captcha 4 + 2 =
+          input#bdgtCaptcha.services_request_form_captcha--ans(type="text" placeholder="Your answer" required)
+          svg.services_request_form_captcha--reload 
+            use(xlink:href="/images/outline.svg#reload" alt="reload")
+          input#bdgtNorobot.services_request_form_captcha--norobo(type="checkbox")
+          label.services_request_form_captcha--label(for="bdgtNorobot") I am not robot
+        
+        button.services_request_form_submit(type="submit" for="serviceForm") Submit budget
+
+    .services_dMarketing
+      h1.services_dMarketing--heading Digital Marketing
+      p.services_dMarketing--subInfo (Google Ads, Facebook, Instagram, Twitter, mobile apps, etc.)
+      p.services_dMarketing--description The presence of the world has shifted towards the digital platforms, your product or service will gain high attention on digital platforms such as websites, search engines, mobile apps, etc. It’s just not traditional advertisement / marketing, you get a wider way of targeting your audience. It’s very fast to create awareness of your product or service, advertise it to the targeted audience and sell where it is more likely to be sold. It has a global reach, effective target, cost effective, more accurate sales funnel, and flexible marketing strategies.
+      .services_dMarketing--img
+      a.services_dMarketing--btn(href="/contact") Contact us

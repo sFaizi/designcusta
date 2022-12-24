@@ -1,0 +1,38 @@
+extends base
+block content 
+  .cntList
+    h1.cntList--heading.admin--heading All contacts
+    a.cntList--home.admin--home(href="/c-panel") Admin home
+    .cntList--logout.admin--logout Logout
+    
+    .cntList_paginate.pagination
+      -const totalRes = docLength
+      -const limit = limitStr || 30
+      -const pageTotal = Math.ceil(totalRes / limit)
+      -const pageNo = Number(page)
+
+      ul.pagination__ul
+        -let num = 0
+        li.pagination__ul--li
+          a.pagination__ul--li-left(href=`?limit=${limit}&page=${pageNo > 1 ? (pageNo - 1) : 1}`) New
+        while num < pageTotal
+          -num++
+          li.pagination__ul--li(class=`${pageNo == num ? 'pagination_active' : ''}`)
+            a.pagination__ul--li-a(href=`?limit=${limit}&page=${num}`)= num
+        li.pagination__ul--li
+          a.pagination__ul--li-right(href=`?limit=${limit}&page=${pageNo < num ? (pageNo + 1) : num}`) Old
+          
+    table.table.cntList_table
+      tr.table_row
+        th.table_row--head Name
+        th.table_row--head E-mail
+        th.table_row--head Phone
+        th.table_row--head Date received
+        th.table_row--head Remove
+      each data in doc 
+        tr.table_row
+          td.table_row--body= data.name
+          td.table_row--body= data.email
+          td.table_row--body= data.phone
+          td.table_row--body= new Date(data.createdAt).toLocaleString('en-IN', {timeZone: 'Asia/Kolkata'})
+          td.table_row--body.removeContact(data-delete= data.id) X
