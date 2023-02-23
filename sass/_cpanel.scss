@@ -1,0 +1,88 @@
+.cpanel {
+	color: $admin-dark;
+
+	&_stats {
+		border-bottom: 1px dashed $admin-light;
+		padding-bottom: 8rem;
+		&--heading {
+			font-size: 4rem;
+			text-align: center;
+			color: $admin-medium;
+			margin: 6rem;
+		}
+
+		&--logout {
+			font-size: 2rem;
+			text-align: right;
+			margin: 4rem;
+			text-decoration: underline;
+			cursor: pointer;
+		}
+
+		&_box {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, 25rem);
+			grid-gap: 5rem;
+			justify-content: center;
+			&_capsule {
+				display: grid;
+				justify-items: center;
+				border: 1px dashed $admin-light;
+				border-radius: 5px;
+				padding: 1rem;
+
+				&--info {
+					font-size: 5rem;
+					font-weight: 600;
+					text-align: center;
+				}
+				&--caption {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+
+	&_sec {
+		&--heading {
+			font-size: 4rem;
+			color: $admin-medium;
+			text-align: center;
+			margin: 6rem;
+		}
+
+		&_box {
+			padding-bottom: 10rem;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, 23rem);
+			grid-gap: 5rem;
+			justify-content: center;
+
+			&_capsule {
+				display: grid;
+				justify-items: center;
+				grid-gap: 2rem;
+				text-decoration: none;
+				color: inherit;
+
+				&--svg {
+					fill: $admin-dark;
+					width: 11rem;
+					height: 11rem;
+					transition: all 0.2s ease-out;
+					&:hover {
+						transform: scale(1.2);
+					}
+				}
+				&--text {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}
+.latestMsg,
+.lastActivity {
+	font-size: 2.3rem;
+	font-weight: 800;
+}

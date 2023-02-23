@@ -4,7 +4,12 @@
 	"description": "web development and graphic designing",
 	"main": "app.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"nodemon": "nodemon server.js -e js,scss,pug",
+		"watch:sass": "sass --watch sass/main.scss:public/css/style.css --style compressed",
+		"compile:js": "watchify ./public/js/index.js -o ./public/js/bundle.js",
+		"start": "npm-run-all --parallel nodemon watch:sass compile:js",
+		"obfuscate": "javascript-obfuscator ./public/js/bundle.js --output ./public/js/bundle.js",
+		"prod": "SET NODE_ENV=production&nodemon server.js"
 	},
 	"author": "sartaj ahmad faizi",
 	"license": "ISC",
@@ -34,6 +39,23 @@
 		"uuid": "^8.3.2",
 		"validator": "^13.6.0",
 		"xss-clean": "^0.1.1"
+	},
+	"devDependencies": {
+		"eslint": "^7.31.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-react": "^7.24.0",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"javascript-obfuscator": "^3.0.0",
+		"nodemon": "^2.0.12",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.3.2",
+		"sass": "^1.36.0",
+		"watchify": "^4.0.0"
 	},
 	"engines": {
 		"node": "18.12.1"

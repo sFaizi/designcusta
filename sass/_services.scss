@@ -1,0 +1,818 @@
+.services {
+	&--heading {
+		font-size: 4rem;
+		color: $color-tertiary;
+		text-align: center;
+		margin: 6rem 0;
+	}
+
+	&_list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		justify-content: center;
+		padding: 3rem;
+
+		&--webRadio {
+			grid-column: 1 / 2;
+			display: none;
+		}
+		&--webRadio_label {
+			grid-column: 1 / 2;
+			height: 5rem;
+			width: 100%;
+			border-top: 2px solid $color-tertiary;
+			border-left: 2px solid $color-tertiary;
+			border-right: 2px solid $color-tertiary;
+			border-bottom: 4px solid $color-plain;
+			border-top-left-radius: 1.5rem;
+			border-top-right-radius: 1.5rem;
+			font-size: 2rem;
+			font-weight: 800;
+			padding: 1rem;
+			text-align: center;
+			transform: translateY(3px);
+			cursor: pointer;
+		}
+
+		&--graphicRadio {
+			grid-column: 2 / 3;
+			display: none;
+		}
+		&--graphicRadio_label {
+			grid-column: 2 / 3;
+			height: 5rem;
+			width: 100%;
+			border-top: 2px solid $color-tertiary;
+			border-left: 2px solid $color-tertiary;
+			border-right: 2px solid $color-tertiary;
+			border-bottom: 4px solid $color-plain;
+			border-top-left-radius: 1.5rem;
+			border-top-right-radius: 1.5rem;
+			font-size: 2rem;
+			font-weight: 800;
+			padding: 1rem;
+			text-align: center;
+			transform: translateY(3px);
+			cursor: pointer;
+		}
+
+		&_graphic,
+		&_web {
+			grid-column: 1 / -1;
+
+			display: grid;
+			grid-template-columns: repeat(auto-fit, 20rem);
+			grid-gap: 9rem;
+			justify-content: center;
+			padding: 3rem;
+			border: 2px solid $color-tertiary;
+			border-bottom-left-radius: 1.5rem;
+			border-bottom-right-radius: 1.5rem;
+			display: none;
+			text-align: center;
+
+			&_capsule {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-gap: 1rem;
+				justify-items: center;
+
+				&--icon {
+					width: 7rem;
+					height: 7rem;
+					fill: $color-tertiary-2;
+				}
+				&--name {
+					font-size: 1.8rem;
+					color: $color-tertiary;
+				}
+				&--brief {
+					font-size: 1.2rem;
+					line-height: 1.5;
+				}
+
+				&_price {
+					&--check {
+						cursor: pointer;
+					}
+					&--checkLabel {
+						cursor: pointer;
+						color: $color-dull;
+						font-size: 1.5rem;
+						font-weight: 800;
+						margin-left: 1rem;
+					}
+				}
+
+				&_page {
+					display: grid;
+					grid-template-columns: repeat(3, max-content);
+					grid-template-rows: min-content min-content;
+					grid-gap: 0.3rem;
+					align-items: center;
+					justify-items: center;
+
+					&--tag {
+						grid-column: 1 / -1;
+						grid-row: 1 / 2;
+					}
+					&--minus {
+						grid-column: 1 / 2;
+						grid-row: 2 / 3;
+					}
+					&--plus {
+						grid-column: 3 / 4;
+						grid-row: 2 / 3;
+					}
+					&--minus,
+					&--plus {
+						width: 2.5rem;
+						height: 2.5rem;
+						border: 1px solid $color-primary;
+						border-radius: 50%;
+						text-align: center;
+						font-size: 2rem;
+						padding: 0.1rem;
+
+						&:hover {
+							background-color: $color-primary;
+							color: $color-plain;
+							cursor: pointer;
+						}
+					}
+					&--count {
+						grid-row: 2 / 3;
+						grid-column: 2 / 3;
+						font-size: 1.1rem;
+						padding: 0.6rem;
+						border-top: 1px solid $color-primary;
+						border-bottom: 1px solid $color-primary;
+					}
+				}
+			}
+		}
+
+		&_conditions {
+			grid-column: 1 / -1;
+			place-self: center;
+			font-size: 1.4rem;
+			padding: 0.5rem;
+		}
+	}
+
+	&_total {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 6rem;
+		grid-row-gap: 2rem;
+		justify-items: center;
+		padding: 5rem;
+		font-size: 1.8rem;
+		color: $color-plain;
+		background-color: $color-tertiary;
+
+		&--graphic_charge {
+			grid-column: 1 / 2;
+			place-self: start end;
+		}
+
+		&--web_charge {
+			grid-column: 2 / 3;
+			place-self: start;
+		}
+
+		&--head {
+			grid-column: 1 / -1;
+		}
+
+		&--amount {
+			grid-column: 1 / -1;
+			font-weight: 800;
+			text-decoration: underline;
+			font-size: 2.5rem;
+		}
+	}
+
+	&_request {
+		display: grid;
+		grid-template-columns: 1fr;
+		padding: 5rem;
+		grid-gap: 5rem;
+
+		&--heading {
+			grid-column: 1 / -1;
+
+			font-size: 4rem;
+			text-align: center;
+		}
+
+		&_form {
+			grid-column: 1 / -1;
+
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 3rem;
+			justify-items: center;
+
+			&_name,
+			&_email,
+			&_phone {
+				grid-column: 1 / -1;
+
+				&--input {
+					font-size: 1.5rem;
+					font-family: inherit;
+					color: $color-dark;
+					padding: 1.5rem 2rem;
+					border-radius: 4px;
+					border: 1px solid $color-tertiary;
+					width: 60rem;
+					display: block;
+					transition: all 0.2s;
+
+					&:focus {
+						outline: none;
+						box-shadow: 0 1rem 2rem rgba($color-dark, 0.1);
+						border-bottom: 3px solid $color-tertiary;
+					}
+
+					&:focus:invalid {
+						border-bottom: 3px solid orangered;
+					}
+
+					&::-webkit-input-placeholder {
+						color: $color-dark;
+					}
+				}
+				&--label {
+					font-size: 1.3rem;
+					font-weight: 700;
+					margin-left: 2rem;
+					margin-top: 0.7rem;
+					display: block;
+					color: $color-dark;
+					transition: all 0.5s;
+				}
+
+				&--input:placeholder-shown + &--label {
+					opacity: 0;
+					visibility: hidden;
+					transform: translateY(-5rem);
+				}
+			}
+
+			&_captcha {
+				grid-column: 1 / -1;
+				width: 60rem;
+				display: grid;
+				grid-template-columns: repeat(6, max-content);
+				grid-gap: 1.8rem;
+				font-size: 1.6rem;
+				align-items: center;
+
+				&--expression {
+					font-weight: 800;
+				}
+				&--captcha {
+					font-size: 2rem;
+					width: 7rem;
+					text-align: center;
+				}
+				&--ans {
+					font-size: 1.5rem;
+					font-family: inherit;
+					color: $color-dark;
+					padding: 0.6rem 1rem;
+					width: 12rem;
+					border-radius: 4px;
+					border: none;
+					border-bottom: 2px solid $color-tertiary;
+					display: block;
+					transition: all 0.2s;
+					text-align: center;
+
+					&:focus {
+						outline: none;
+						box-shadow: 0 1rem 2rem rgba($color-dark, 0.1);
+						border-bottom: 3px solid $color-tertiary;
+					}
+
+					&:focus:invalid {
+						border-bottom: 3px solid orangered;
+					}
+
+					&::-webkit-input-placeholder {
+						color: $color-dull;
+					}
+				}
+				&--reload {
+					width: 2.6rem;
+					height: 2.6rem;
+					fill: $color-tertiary;
+					cursor: pointer;
+				}
+				&--norobo {
+					justify-self: end;
+					cursor: pointer;
+				}
+				&--label {
+					cursor: pointer;
+					justify-self: start;
+				}
+			}
+
+			&_submit {
+				padding: 0.5rem;
+				width: 20rem;
+				height: 4rem;
+				border-radius: 2px;
+				border: none;
+				color: $color-plain;
+				font-size: 1.8rem;
+				transition: all 0.1s;
+				background-color: $color-tertiary;
+				position: relative;
+
+				&--alert {
+					position: absolute;
+					top: 5rem;
+					left: 0;
+					right: 0;
+					color: $color-fail;
+					text-align: center;
+					font-size: 1.4rem;
+				}
+
+				&:hover {
+					cursor: pointer;
+					transform: translateY(-2px);
+					box-shadow: 1px 1px 2px 2px rgba($color-primary, 0.5);
+				}
+			}
+		}
+	}
+
+	&_dMarketing {
+		display: grid;
+		grid-template-columns: 1.5fr 1fr;
+		grid-template-rows: repeat(3, min-content);
+		grid-row-gap: 2rem;
+		text-align: center;
+		margin: 3rem 0;
+
+		&--heading {
+			grid-column: 1 / -1;
+			grid-row: 1 / 2;
+
+			font-size: 4rem;
+			color: $color-tertiary;
+		}
+
+		&--subInfo {
+			grid-column: 1 / -1;
+			grid-row: 2 / 3;
+			font-size: 1.8rem;
+		}
+
+		&--description {
+			grid-column: 1 / 2;
+			grid-row: 3 / 4;
+
+			font-size: 1.8rem;
+			line-height: 2;
+			padding: 8rem 14rem;
+			background-color: rgba($color-primary, 0.1);
+		}
+
+		&--img {
+			grid-column: 2 / 3;
+			grid-row: 3 / 4;
+			width: 100%;
+			height: 60rem;
+			background-image: linear-gradient(
+					to bottom,
+					rgba($color-tertiary, 0.45),
+					rgba($color-tertiary-2, 0.7)
+				),
+				url('/images/blogs/digital-marketing.jpg');
+			background-size: cover;
+			background-position: bottom;
+		}
+
+		&--btn {
+			grid-column: 2 / 3;
+			grid-row: 3 / 4;
+			place-self: end start;
+			z-index: $z-lowest;
+			margin-bottom: 8rem;
+
+			padding: 1rem;
+			width: 20rem;
+			height: 4rem;
+			border-radius: 2px;
+			border: none;
+			color: $color-tertiary;
+			font-size: 1.8rem;
+			transition: all 0.1s;
+			background-color: rgba($color-plain, 0.8);
+			text-decoration: none;
+
+			&:hover {
+				cursor: pointer;
+				transform: translateY(-2px);
+				box-shadow: 1px 1px 2px 2px rgba($color-primary, 0.5);
+				background-color: rgba($color-plain, 1);
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-largest) {
+		&--heading {
+			font-size: 3.2rem;
+		}
+
+		&_list {
+			&--webRadio_label {
+				font-size: 1.9rem;
+				transform: translateY(2px);
+			}
+
+			&--graphicRadio_label {
+				font-size: 1.9rem;
+				transform: translateY(2px);
+			}
+
+			&_graphic,
+			&_web {
+				&_capsule {
+					&--icon {
+						width: 6.5rem;
+						height: 6.5rem;
+					}
+					&--name {
+						font-size: 1.7rem;
+					}
+					&--brief {
+						font-size: 1.15rem;
+					}
+
+					&_price {
+						&--checkLabel {
+							font-size: 1.5rem;
+						}
+					}
+				}
+			}
+
+			&_conditions {
+				font-size: 1.3rem;
+			}
+		}
+
+		&_total {
+			font-size: 1.6rem;
+		}
+
+		&_request {
+			&--heading {
+				font-size: 3.2rem;
+			}
+		}
+
+		&_dMarketing {
+			grid-row-gap: 1.5rem;
+
+			&--heading {
+				font-size: 3.2rem;
+			}
+
+			&--subInfo {
+				font-size: 1.6rem;
+			}
+
+			&--description {
+				font-size: 1.6rem;
+				line-height: 1.9;
+				padding: 8rem 11rem;
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-large) {
+		&--heading {
+			font-size: 2.8rem;
+		}
+
+		&_list {
+			&--webRadio_label {
+				font-size: 1.8rem;
+			}
+
+			&--graphicRadio_label {
+				font-size: 1.8rem;
+			}
+
+			&_graphic,
+			&_web {
+				&_capsule {
+					&--icon {
+						width: 6.3rem;
+						height: 6.3rem;
+					}
+					&--name {
+						font-size: 1.6rem;
+					}
+					&--brief {
+						font-size: 1rem;
+					}
+
+					&_price {
+						&--checkLabel {
+							font-size: 1.4rem;
+						}
+					}
+				}
+			}
+
+			&_conditions {
+				font-size: 1.1rem;
+			}
+		}
+
+		&_total {
+			font-size: 1.5rem;
+		}
+
+		&_request {
+			&--heading {
+				font-size: 2.8rem;
+			}
+
+			&_form {
+				&_name,
+				&_email,
+				&_phone {
+					&--input {
+						font-size: 1.4rem;
+						padding: 1.4rem 2rem;
+					}
+					&--label {
+						font-size: 1.3rem;
+					}
+				}
+
+				&_submit {
+					height: 3.8rem;
+					font-size: 1.7rem;
+				}
+			}
+		}
+
+		&_dMarketing {
+			margin: 2rem;
+			grid-row-gap: 1rem;
+
+			&--heading {
+				font-size: 2.8rem;
+			}
+
+			&--subInfo {
+				font-size: 1.6rem;
+			}
+
+			&--description {
+				background-color: transparent;
+				grid-column: 1 / -1;
+				z-index: $z-low;
+				color: $color-plain;
+				line-height: 2;
+				padding: 11rem;
+				place-self: center;
+			}
+
+			&--img {
+				grid-column: 1 / -1;
+				height: 55rem;
+				background-image: linear-gradient(
+						to right bottom,
+						rgba($color-tertiary, 0.7) 20%,
+						rgba($color-tertiary-2, 1)
+					),
+					url('/images/blogs/digital-marketing.jpg');
+				background-size: cover;
+			}
+
+			&--btn {
+				grid-column: 1 / -1;
+				place-self: end center;
+				z-index: $z-lowest;
+				height: 3.8rem;
+				font-size: 1.7rem;
+				padding: 1rem;
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		&--heading {
+			font-size: 2.5rem;
+			margin: 3rem 0;
+		}
+
+		&_list {
+			&--webRadio_label {
+				transform: translateY(3px);
+			}
+
+			&--graphicRadio_label {
+				transform: translateY(3px);
+			}
+		}
+
+		&_total {
+			font-size: 1.3rem;
+		}
+
+		&_request {
+			&--heading {
+				font-size: 2.2rem;
+			}
+
+			&_form {
+				&_name,
+				&_email,
+				&_phone {
+					&--input {
+						font-size: 1.3rem;
+						padding: 1.3rem 2rem;
+						width: 40rem;
+
+						&:focus {
+							box-shadow: 0 0.5rem 1rem rgba($color-dark, 0.1);
+						}
+					}
+					&--label {
+						font-size: 1.2rem;
+					}
+				}
+
+				&_captcha {
+					width: 40rem;
+					display: grid;
+					grid-template-columns: repeat(3, min-content);
+					grid-template-rows: repeat(3, min-content);
+					grid-gap: 1.2rem;
+					justify-content: center;
+					justify-items: center;
+					font-size: 1.6rem;
+
+					&--expression {
+						grid-column: 1 / -1;
+						grid-row: 1 / 2;
+						font-weight: 800;
+					}
+					&--captcha {
+						grid-column: 1 / 2;
+						grid-row: 2 / 3;
+						font-size: 2rem;
+						width: 7rem;
+						text-align: center;
+					}
+					&--ans {
+						grid-column: 2 / 3;
+						grid-row: 2 / 3;
+						font-size: 1.5rem;
+						padding: 0.6rem 1rem;
+						width: 12rem;
+					}
+					&--reload {
+						grid-column: 3 / 4;
+						grid-row: 2 / 3;
+						width: 2.6rem;
+						height: 2.6rem;
+					}
+					&--norobo {
+						grid-column: 1 / 2;
+						grid-row: 3 / 4;
+					}
+					&--label {
+						grid-column: 2 / 4;
+						grid-row: 3 / 4;
+					}
+				}
+
+				&_submit {
+					height: 3.5rem;
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		&_dMarketing {
+			margin: 1.5rem;
+
+			&--heading {
+				font-size: 2.2rem;
+			}
+
+			&--subInfo {
+				font-size: 1.3rem;
+			}
+
+			&--description {
+				line-height: 1.9;
+				font-size: 1.5rem;
+				padding: 6rem;
+			}
+
+			&--btn {
+				height: 3.5rem;
+				width: 15rem;
+				font-size: 1.6rem;
+				padding: 0.6rem;
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		&_request {
+			&_form {
+				&_name,
+				&_email,
+				&_phone {
+					&--input {
+						width: 35rem;
+					}
+				}
+			}
+		}
+
+		&_dMarketing {
+			margin: 1rem;
+
+			&--description {
+				line-height: 1.6;
+				font-size: 1.4rem;
+				padding: 6rem;
+				place-self: start;
+			}
+			&--img {
+				height: 50rem;
+				background-image: linear-gradient(
+						to bottom,
+						rgba($color-tertiary, 1),
+						rgba($color-tertiary-2, 0.7) 80%
+					),
+					url('/images/blogs/digital-marketing.jpg');
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-old) {
+		&_list {
+			&--webRadio_label,
+			&--graphicRadio_label {
+				font-size: 1.7rem;
+			}
+		}
+
+		&_total {
+			grid-column-gap: 3rem;
+		}
+
+		&_request {
+			padding: 5rem 0.5rem;
+			&_form {
+				&_name,
+				&_email,
+				&_phone {
+					&--input {
+						font-size: 1.3rem;
+						padding: 1.3rem 2rem;
+						width: 30rem;
+					}
+				}
+
+				&_captcha {
+					width: 30rem;
+				}
+			}
+		}
+
+		&_dMarketing {
+			&--description {
+				line-height: 1.8;
+				font-size: 1.2rem;
+				padding: 3rem;
+				place-self: start;
+			}
+
+			&--btn {
+				height: 3rem;
+				width: 12rem;
+				font-size: 1.4rem;
+				padding: 0.5rem;
+			}
+		}
+	}
+}

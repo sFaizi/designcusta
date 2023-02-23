@@ -1,0 +1,158 @@
+// Pagination
+.pagination {
+	grid-column: 1 / -1;
+	grid-row: 2/3;
+	width: 100%;
+	padding: 1rem;
+	border-top: 2px solid $admin-light;
+	&__ul {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 4.5rem);
+		grid-gap: 0.8rem;
+		justify-content: center;
+		align-items: center;
+		list-style-type: none;
+		color: $color-plain;
+		font-size: 1.6rem;
+		font-weight: 500;
+		&--li {
+			background-color: $admin-dark;
+			border-radius: 3px;
+			text-align: center;
+			width: 100%;
+			padding: 0.3rem;
+
+			&:hover {
+				background-color: $admin-medium;
+			}
+
+			&-left,
+			&-right {
+				color: inherit;
+				text-decoration: none;
+				padding: 0.2rem 0.1rem;
+				font-size: inherit;
+			}
+			&-a {
+				cursor: pointer;
+				color: inherit;
+				padding: 0.2rem 1.5rem;
+				font-size: inherit;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.pagination_active {
+	color: $admin-dark;
+	border: 1px solid $admin-dark;
+	background-color: $color-plain;
+}
+
+.table {
+	padding: 4rem;
+	width: 100%;
+	text-align: left;
+	&_row {
+		&--head {
+			font-size: 1.8rem;
+			background-color: $admin-dark;
+			padding: 0.8rem;
+			color: $color-plain;
+		}
+		&--body {
+			font-size: 1.5rem;
+			border-bottom: 1px dashed $admin-light;
+			padding: 0.6rem;
+		}
+		&:hover {
+			color: $color-plain;
+			background-color: $admin-medium;
+		}
+	}
+}
+
+.admin--heading {
+	font-size: 4rem;
+	margin: 6rem;
+	text-align: center;
+}
+
+.admin--home {
+	display: inline-block;
+	font-size: 2rem;
+	margin: 4rem;
+	color: $admin-light;
+	&:hover {
+		color: $admin-dark;
+	}
+}
+
+.admin--logout {
+	display: inline-block;
+	text-decoration: underline;
+	font-size: 2rem;
+	margin: 4rem;
+	color: $admin-light;
+	&:hover {
+		color: $admin-dark;
+		cursor: pointer;
+	}
+}
+
+// Offer popup
+.offer {
+	&_box {
+		padding: 1rem;
+		background-color: $admin-grey_light;
+		color: $color-dark;
+		font-size: 1.8rem;
+		text-align: center;
+		align-items: center;
+
+		display: grid;
+		grid-template-columns: 5fr 1fr;
+		grid-gap: 2rem;
+		padding: 1rem 5rem;
+		line-height: 1.5;
+
+		&--msg {
+			animation: blink 0.8s ease-in-out 0.2s infinite alternate;
+		}
+		&--x {
+			place-self: center end;
+			border: 1px solid $color-fail;
+			width: 4rem;
+			height: 4rem;
+			border-radius: 50%;
+			padding: 1rem;
+			cursor: pointer;
+			color: $color-fail;
+			background-color: $admin-grey_light;
+		}
+
+		@media only screen and (min-width: $bp-largest) {
+			padding: 1rem 8rem;
+			&--x {
+				place-self: center;
+				padding: 0.7rem;
+			}
+		}
+		@media only screen and (max-width: $bp-largest) {
+			font-size: 1.6rem;
+			&--x {
+				padding: 0.9rem;
+			}
+		}
+		@media only screen and (max-width: $bp-large) {
+			font-size: 1.4rem;
+			&--x {
+				opacity: 0;
+			}
+		}
+		@media only screen and (max-width: $bp-small) {
+			font-size: 1.2rem;
+		}
+	}
+}

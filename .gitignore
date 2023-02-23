@@ -1,10 +1,10 @@
 node_modules/
 *.env
 package-lock.json
-public/js/common/
-public/js/publicController/
-public/js/index.js
+# public/js/common/
+# public/js/publicController/
+# public/js/index.js
 notes.txt
-sass/
-.eslintrc.json
-.prettierrc
+# sass/
+# .eslintrc.json
+# .prettierrc

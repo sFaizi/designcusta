@@ -1,0 +1,451 @@
+.pf {
+	&_heading {
+		text-align: center;
+		font-size: 4rem;
+		margin: 6rem 0;
+	}
+
+	&_nav {
+		display: grid;
+		grid-template-columns: repeat(3, max-content);
+		grid-template-rows: min-content min-content;
+		grid-gap: 2rem;
+		font-size: 1.5rem;
+		background-color: $color-tertiary;
+		color: $color-plain;
+		padding: 4rem;
+		&--cap {
+			grid-column: 1 / -1;
+			grid-row: 1 / 1;
+			font-size: 2rem;
+			font-weight: 800;
+		}
+
+		&--web,
+		&--graphic,
+		&--geo {
+			color: inherit;
+			text-decoration: none;
+			&::after {
+				display: block;
+				content: '';
+				background-color: $color-plain;
+				height: 1px;
+				width: 0%;
+				margin-top: 0.35rem;
+				transition: all 0.4s;
+			}
+			&:hover::after {
+				width: 100%;
+			}
+		}
+
+		&--web {
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+		}
+		&--graphic {
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+		}
+		&--geo {
+			grid-column: 3 / 4;
+			grid-row: 2 / 3;
+		}
+	}
+
+	&_web {
+		&--head {
+			text-align: center;
+			margin: 3rem 0;
+		}
+
+		&_case {
+			display: grid;
+			grid-template-columns: 1fr 1.8fr;
+			grid-template-rows: repeat(3, min-content);
+			grid-gap: 4rem;
+			padding: 2rem;
+			margin: 2rem 2rem 10rem 2rem;
+			border: 1px dashed $color-tertiary;
+			border-radius: 10px;
+
+			&_logo {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				place-self: center start;
+				&--img {
+					width: 60%;
+				}
+				&--svg {
+					fill: #d1d1d1;
+					width: 70%;
+				}
+			}
+
+			&_webpages {
+				grid-column: 2 / 3;
+				grid-row: 1 / 4;
+				&_a{
+					&--img {
+						width: 100%;
+					}
+				}
+			}
+
+			&_info {
+				grid-column: 1 / 2;
+				grid-row: 2 / 3;
+				line-height: 2;
+				font-size: 1.4rem;
+			}
+
+			&_link {
+				grid-column: 1 / 2;
+				grid-row: 3 / 4;
+				text-decoration: none;
+				font-size: 1.8rem;
+				color: $color-tertiary;
+				place-self: start;
+
+				&::after {
+					display: block;
+					content: '';
+					background-color: $color-primary;
+					height: 1px;
+					width: 0%;
+					margin-top: 0.35rem;
+					transition: all 0.4s;
+				}
+				&:hover::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&_graphic {
+		margin: 2rem;
+
+		&--head {
+			text-align: center;
+			margin: 3rem 0;
+		}
+
+		&_logosSQ,
+		&_logosRCT {
+			border: 1px dashed $color-tertiary;
+			border-radius: 10px;
+			display: grid;
+			justify-content: center;
+			align-items: center;
+			grid-gap: 15rem;
+			padding: 2rem;
+			margin: 1rem 0;
+		}
+
+		&_logosSQ {
+			grid-template-columns: repeat(auto-fit, 120px);
+			&_case {
+				&--imgSQ {
+					width: 100%;
+				}
+			}
+		}
+
+		&_logosRCT {
+			grid-template-columns: repeat(auto-fit, 200px);
+			margin-top: 8rem;
+			&_case {
+				&--imgRECT {
+					height: 50px;
+				}
+			}
+		}
+	}
+
+	&_geol {
+		margin: 2rem;
+		line-height: 2;
+		&--head {
+			text-align: center;
+		}
+
+		&_bio {
+			padding: 2rem;
+			border: 1px dashed $color-tertiary;
+			border-radius: 10px;
+
+			&--h {
+				margin-top: 2rem;
+			}
+			&--sub-h {
+				font-size: 1.8rem;
+			}
+			&--p {
+				font-size: 1.4rem;
+			}
+			&--link {
+				display: inline-block;
+				font-size: 1.3rem;
+				color: $admin-light;
+				text-decoration: none;
+				&::after {
+					display: block;
+					content: '';
+					background-color: $admin-light;
+					height: 1px;
+					width: 0%;
+					transition: all 0.4s;
+				}
+				&:hover::after {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-largest) {
+		&_heading {
+			font-size: 3.2rem;
+		}
+	}
+
+	@media only screen and (max-width: $bp-large) {
+		&_heading {
+			font-size: 2.8rem;
+		}
+
+		&_web {
+			&_case {
+				display: grid;
+				grid-template-columns: 1fr;
+				justify-items: center;
+				grid-template-rows: repeat(4, min-content);
+				grid-gap: 3rem;
+
+				&_logo {
+					grid-column: 1 / -1;
+					grid-row: 1 / 2;
+					place-self: center;
+					&--img {
+						width: 50%;
+						transform: translateX(5rem);
+					}
+				}
+				
+				&_webpages {
+					grid-column: 1 / -1;
+					grid-row: 2 / 3;
+					&--img {
+						width: 100%;
+					}
+				}
+				
+				&_info {
+					grid-column: 1 / -1;
+					grid-row: 3 / 4;
+					text-align: center;
+				}
+				
+				&_link {
+					grid-column: 1 / -1;
+					grid-row: 4 / 5;
+					text-decoration: none;
+					place-self: center;
+				}
+			}
+		}
+
+		&_geol {
+			&_bio {
+				&--h {
+					font-size: 1.9rem;
+				}
+				&--sub-h {
+					font-size: 1.7rem;
+				}
+				&--p {
+					font-size: 1.3rem;
+				}
+				&--link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		&_heading {
+			font-size: 2.4rem;
+			margin: 3rem 0;
+		}
+
+		&_nav {
+			&--cap {
+				font-size: 1.6rem;
+			}
+		}
+
+		&_web {
+			&--head {
+				font-size: 1.8rem;
+			}
+			&_case {
+				&_info {
+					font-size: 1.3rem;
+				}
+				&_link {
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		&_graphic {
+
+			&--head {
+				font-size: 1.8rem;
+			}
+
+			&_logosSQ,
+			&_logosRCT {
+				grid-gap: 11rem;
+			}
+	
+			&_logosSQ {
+				grid-template-columns: repeat(auto-fit, 100px);
+			}
+	
+			&_logosRCT {
+				grid-template-columns: repeat(auto-fit, 200px);
+				margin-top: 6rem;
+				&_case {
+					&--imgRECT {
+						height: 45px;
+					}
+				}
+			}
+		}
+
+		&_geol {
+
+			&--head {
+				font-size: 1.8rem;
+			}
+			&_bio {
+				&--h {
+					font-size: 1.8rem;
+				}
+				&--sub-h {
+					font-size: 1.6rem;
+				}
+				&--p {
+					font-size: 1.2rem;
+				}
+				&--link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		&_heading {
+			font-size: 2.2rem;
+		}
+	
+		&_nav {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows:repeat(4,  min-content);
+			justify-items: center;
+			padding: 2rem;
+			&--cap {
+				grid-column: 1 / -1;
+				font-size: 1.6rem;
+				grid-row: 1 / 2;
+			}
+			&--web {
+				grid-column: 1 / -1;
+				grid-row: 2 / 3;
+			}
+			&--graphic {
+				grid-column: 1 / -1;
+				grid-row: 3 / 4;
+			}
+			&--geo {
+				grid-column: 1 / -1;
+				grid-row: 4 / 5;
+			}
+		}
+
+		&_web {
+			&--head {
+				font-size: 1.7rem;
+			}
+			&_case {
+				&_logo {
+					&--img {
+						width: 40%;
+					}
+					&--svg {
+						width: 200px;
+						height: 45px;
+					}
+				}
+				&_info {
+					font-size: 1.3rem;
+				}
+				&_link {
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		&_graphic {
+
+			&--head {
+				font-size: 1.7rem;
+			}
+
+			&_logosSQ,
+			&_logosRCT {
+				grid-gap: 7rem;
+			}
+	
+			&_logosSQ {
+				grid-template-columns: repeat(auto-fit, 80px);
+			}
+	
+			&_logosRCT {
+				grid-template-columns: repeat(auto-fit, 180px);
+				margin-top: 6rem;
+				&_case {
+					&--imgRECT {
+						height: 41px;
+					}
+				}
+			}
+		}
+
+		&_geol {
+			&--head {
+				font-size: 1.7rem;
+			}
+			&_bio {
+				&--h {
+					font-size: 1.6rem;
+				}
+				&--sub-h {
+					font-size: 1.4rem;
+				}
+				&--p {
+					font-size: 1.2rem;
+				}
+				&--link {
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+}

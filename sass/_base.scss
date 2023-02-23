@@ -1,0 +1,61 @@
+// COLOR VARIABLES
+$color-primary: #06a978; /* Main Primary color */
+$color-primary-2: #7aeecb;
+$color-secondary: #2bb188;
+$color-secondary-2: #4fc29f;
+$color-tertiary: #006a4a;
+$color-tertiary-2: #00865e;
+
+$color-plain: #fff;
+$color-dull: #725f5f;
+$color-dark: #000000;
+
+$color-success: #08973f;
+$color-fail: #d32222;
+
+$admin-grey_light: #d8d8d8;
+$admin-grey_dark: #585858;
+$admin-dark: #a10c0c;
+$admin-medium: #cf2323;
+$admin-light: #df5f5f;
+
+// FONT VARIABLES
+$font-formal: 'Comfortaa', cursive;
+$font-freehand: 'Dancing Script', cursive;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+$bp-old: 28.75em; // 460px; but work on 320px
+
+// Layer z-index
+$z-sky: 1000;
+$z-highest: 100;
+$z-high: 80;
+$z-medium: 60;
+$z-low: 40;
+$z-lowest: 20;
+$z-ground: 1;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+	min-width: 320px;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-formal;
+	color: $color-tertiary;
+	position: relative;
+}

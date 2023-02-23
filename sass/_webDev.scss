@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+	font-family: 'Montserrat', sans-serif;
+}
+.webDev {
+	padding: 6rem 0;
+	width: 80%;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	&--headnote {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+	&--heading {
+		text-align: center;
+		font-size: 3.5rem;
+		width: 75%;
+		margin: 2rem auto;
+		font-weight: 700;
+	}
+	&--subHeading {
+		text-align: center;
+		font-size: 1.8rem;
+		width: 40%;
+		margin: 4rem auto;
+	}
+	&--img {
+		width: 100%;
+		border-radius: 4px;
+	}
+	&_blog {
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		grid-column-gap: 5rem;
+		margin-top: 6rem;
+		&_link {
+			&_item {
+				list-style-type: none;
+				padding-bottom: 2rem;
+				&--link {
+					font-size: 1.6rem;
+					text-decoration: none;
+					color: inherit;
+				}
+				&_blog {
+					margin-top: 2rem;
+					padding-top: 2rem;
+					&--heading {
+						font-size: 2rem;
+						padding-bottom: 2rem;
+					}
+					&--img {
+						height: auto;
+						max-width: 100%;
+						border-radius: 0.5rem;
+					}
+					&--link {
+						color: inherit;
+						font-size: 1.6rem;
+						text-decoration: none;
+						display: block;
+						padding-top: 1rem;
+					}
+				}
+			}
+		}
+		&_content {
+			&_what,
+			&_importance,
+			&_benifits {
+				margin-bottom: 4rem;
+				&--heading {
+					font-size: 2.7rem;
+					margin-bottom: 2rem;
+				}
+				&--subheading {
+					font-size: 2rem;
+					margin-bottom: 2rem;
+				}
+			}
+			p {
+				font-size: 1.7rem;
+				line-height: 150%;
+				margin-bottom: 2rem;
+			}
+			b {
+				font-size: 1.6rem;
+				display: block;
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $bp-medium) {
+	.webDev {
+		padding: 3rem 0;
+		width: 100%;
+		&--heading {
+			font-size: 2rem;
+		}
+		&--subHeading {
+			width: 90%;
+		}
+		&--img {
+			width: 90%;
+			border-radius: 4px;
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&_blog {
+			margin-top: 2rem;
+			&_link {
+				grid-row: 2/3;
+				grid-column: 1/-1;
+				padding: 0 2rem;
+				&_item {
+					display: none;
+					&_blog {
+						margin-top: 0;
+						padding-top: 0;
+						&--heading {
+							font-size: 2rem;
+							padding-bottom: 2rem;
+						}
+					}
+				}
+			}
+			&_content {
+				grid-column: 1/-1;
+				padding: 0 2rem;
+				&_what,
+				&_importance,
+				&_benifits {
+					margin-bottom: 4rem;
+					&--heading {
+						font-size: 2rem;
+						margin-bottom: 2rem;
+					}
+					&--subheading {
+						font-size: 1.8rem;
+						margin-bottom: 2rem;
+					}
+				}
+				p {
+					font-size: 1.6rem;
+				}
+				b {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
+}

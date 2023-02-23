@@ -1,0 +1,524 @@
+.contact {
+	&--heading {
+		font-size: 4rem;
+		color: $color-tertiary;
+		text-align: center;
+		margin-top: 6rem;
+	}
+
+	&_direct {
+		display: grid;
+		grid-template-columns: min-content min-content;
+		justify-content: center;
+		grid-gap: 3rem;
+		margin: 3rem 0;
+		background-color: $color-tertiary-2;
+		height: 15rem;
+		color: $color-plain;
+
+		&_whatsapp {
+			grid-column: 1 / 2;
+		}
+		&_mail {
+			grid-column: 2 / 3;
+		}
+		&_whatsapp,
+		&_mail {
+			display: grid;
+			grid-template-columns: min-content max-content;
+			justify-content: center;
+			align-items: center;
+			grid-gap: 1.5rem;
+			&--svg {
+				grid-column: 1 / 2;
+				width: 6rem;
+				height: 6rem;
+				fill: $color-plain;
+			}
+			&--text {
+				grid-column: 2 / 3;
+				font-size: 1.8rem;
+				text-decoration: none;
+				color: inherit;
+
+				&:hover {
+					transform: translateY(-2px);
+					color: $color-primary-2;
+				}
+			}
+		}
+	}
+
+	&_seperate {
+		font-size: 1.8rem;
+		font-weight: 800;
+		text-align: center;
+		margin: 1rem 0;
+	}
+
+	&_form {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 3rem;
+		justify-items: center;
+		padding: 6rem;
+
+		&_name,
+		&_email,
+		&_phone,
+		&_describe {
+			grid-column: 1 / -1;
+
+			&--input {
+				font-size: 1.5rem;
+				font-family: inherit;
+				color: $color-dark;
+				padding: 1.5rem 2rem;
+				border-radius: 4px;
+				border: 1px solid $color-tertiary;
+				width: 60rem;
+				display: block;
+				transition: all 0.2s;
+
+				&:focus {
+					outline: none;
+					box-shadow: 0 1rem 2rem rgba($color-dark, 0.1);
+					border-bottom: 3px solid $color-tertiary;
+				}
+
+				&:focus:invalid {
+					border-bottom: 3px solid orangered;
+				}
+
+				&::-webkit-input-placeholder {
+					color: $color-dark;
+				}
+			}
+			&--label {
+				font-size: 1.3rem;
+				font-weight: 700;
+				margin-left: 2rem;
+				margin-top: 0.7rem;
+				display: block;
+				color: $color-dark;
+				transition: all 0.5s;
+			}
+
+			&--input:placeholder-shown + &--label {
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-5rem);
+			}
+		}
+		&_describe {
+			&--input {
+				max-width: 60rem;
+				height: 30rem;
+				max-height: 30rem;
+			}
+		}
+
+		&--imgHead {
+			font-size: 1.5rem;
+		}
+
+		&_sample {
+			position: relative;
+			&--input {
+				font-size: 1.5rem;
+				font-family: inherit;
+				color: $color-dark;
+				border-radius: 4px;
+				border: 1px solid $color-tertiary;
+				width: 60rem;
+				height: 5rem;
+				padding: 1rem;
+				display: block;
+				cursor: pointer;
+			}
+			&--label {
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size: 1.5rem;
+				font-family: inherit;
+				color: $color-plain;
+				height: 5rem;
+				width: 10.7rem;
+				padding: 1.5rem 2rem;
+				background-color: $color-tertiary-2;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
+
+				&:hover {
+					cursor: pointer;
+					background-color: $color-primary;
+				}
+			}
+		}
+
+		&_captcha {
+			width: 60rem;
+			display: grid;
+			grid-template-columns: repeat(6, max-content);
+			grid-gap: 1.8rem;
+			font-size: 1.6rem;
+			align-items: center;
+
+			&--expression {
+				font-weight: 800;
+			}
+			&--captcha {
+				font-size: 2rem;
+				width: 7rem;
+				text-align: center;
+			}
+			&--ans {
+				font-size: 1.5rem;
+				font-family: inherit;
+				color: $color-dark;
+				padding: 0.6rem 1rem;
+				width: 12rem;
+				border-radius: 4px;
+				border: none;
+				border-bottom: 2px solid $color-tertiary;
+				display: block;
+				transition: all 0.2s;
+				text-align: center;
+
+				&:focus {
+					outline: none;
+					box-shadow: 0 1rem 2rem rgba($color-dark, 0.1);
+					border-bottom: 3px solid $color-tertiary;
+				}
+
+				&:focus:invalid {
+					border-bottom: 3px solid orangered;
+				}
+
+				&::-webkit-input-placeholder {
+					color: $color-dull;
+				}
+			}
+			&--reload {
+				width: 2.6rem;
+				height: 2.6rem;
+				fill: $color-tertiary;
+				cursor: pointer;
+			}
+			&--norobo {
+				justify-self: end;
+				cursor: pointer;
+			}
+			&--label {
+				justify-self: start;
+				cursor: pointer;
+			}
+		}
+
+		&--btn {
+			padding: 0.5rem;
+			width: 20rem;
+			height: 4rem;
+			border-radius: 2px;
+			border: none;
+			color: $color-plain;
+			font-size: 1.8rem;
+			transition: all 0.1s;
+			background-color: $color-tertiary;
+			position: relative;
+
+			&-alert {
+				position: absolute;
+				top: 5rem;
+				left: 0;
+				right: 0;
+				color: $color-fail;
+				text-align: center;
+				font-size: 1.4rem;
+			}
+
+			&:hover {
+				cursor: pointer;
+				transform: translateY(-2px);
+				box-shadow: 1px 1px 2px 2px rgba($color-primary, 0.5);
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-largest) {
+		&--heading {
+			font-size: 3.2rem;
+		}
+
+		&_direct {
+			&_whatsapp,
+			&_mail {
+				&--svg {
+					width: 5rem;
+				}
+				&--text {
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		&_seperate {
+			font-size: 1.6rem;
+		}
+	}
+	@media only screen and (max-width: $bp-large) {
+		&--heading {
+			font-size: 2.8rem;
+		}
+
+		&_direct {
+			&_whatsapp,
+			&_mail {
+				&--svg {
+					width: 4.5rem;
+				}
+			}
+		}
+
+		&_form {
+			&_name,
+			&_email,
+			&_phone,
+			&_describe {
+				&--input {
+					font-size: 1.4rem;
+					padding: 1.4rem 2rem;
+				}
+				&--label {
+					font-size: 1.3rem;
+				}
+			}
+
+			&_sample {
+				&--input {
+					font-size: 1.3rem;
+					padding: 1.3rem;
+				}
+				&--label {
+					font-size: 1.3rem;
+					padding: 1.8rem;
+					width: 10rem;
+				}
+			}
+
+			&--btn {
+				height: 3.8rem;
+				font-size: 1.7rem;
+			}
+		}
+	}
+	@media only screen and (max-width: $bp-medium) {
+		&--heading {
+			font-size: 2.4rem;
+		}
+
+		&_direct {
+			&_whatsapp,
+			&_mail {
+				&--svg {
+					width: 3.5rem;
+				}
+				&--text {
+					font-size: 1.5rem;
+				}
+			}
+		}
+
+		&_seperate {
+			font-size: 1.5rem;
+		}
+
+		&_form {
+			&_name,
+			&_email,
+			&_phone,
+			&_describe {
+				&--input {
+					font-size: 1.3rem;
+					padding: 1.3rem 2rem;
+					width: 40rem;
+
+					&:focus {
+						box-shadow: 0 0.5rem 1rem rgba($color-dark, 0.1);
+					}
+				}
+				&--label {
+					font-size: 1.2rem;
+				}
+			}
+			&_describe {
+				&--input {
+					max-width: 40rem;
+				}
+			}
+
+			&--imgHead {
+				font-size: 1.4rem;
+			}
+
+			&_sample {
+				&--input {
+					font-size: 1.3rem;
+					width: 40rem;
+					height: 4.3rem;
+					padding: 1rem;
+				}
+				&--label {
+					height: 4.3rem;
+					font-size: 1.2rem;
+					width: 9.8rem;
+					padding: 1.5rem;
+				}
+			}
+
+			&_captcha {
+				width: 40rem;
+				display: grid;
+				grid-template-columns: repeat(3, min-content);
+				grid-template-rows: repeat(3, min-content);
+				grid-gap: 1.2rem;
+				justify-content: center;
+				justify-items: center;
+				font-size: 1.6rem;
+
+				&--expression {
+					grid-column: 1 / -1;
+					grid-row: 1 / 2;
+					font-weight: 800;
+				}
+				&--captcha {
+					grid-column: 1 / 2;
+					grid-row: 2 / 3;
+					font-size: 2rem;
+					width: 7rem;
+					text-align: center;
+				}
+				&--ans {
+					grid-column: 2 / 3;
+					grid-row: 2 / 3;
+					font-size: 1.5rem;
+					padding: 0.6rem 1rem;
+					width: 12rem;
+				}
+				&--reload {
+					grid-column: 3 / 4;
+					grid-row: 2 / 3;
+					width: 2.6rem;
+					height: 2.6rem;
+				}
+				&--norobo {
+					grid-column: 1 / 2;
+					grid-row: 3 / 4;
+				}
+				&--label {
+					grid-column: 2 / 4;
+					grid-row: 3 / 4;
+				}
+			}
+
+			&--btn {
+				height: 3.5rem;
+				font-size: 1.6rem;
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		&--heading {
+			font-size: 2.2rem;
+		}
+
+		&_direct {
+			&_whatsapp,
+			&_mail {
+				&--svg {
+					width: 3rem;
+				}
+			}
+		}
+
+		&_form {
+			&_name,
+			&_email,
+			&_phone,
+			&_describe {
+				&--input {
+					width: 35rem;
+				}
+			}
+			&_describe {
+				&--input {
+					max-width: 35rem;
+				}
+			}
+			&_sample {
+				&--input {
+					width: 35rem;
+				}
+				&--label {
+					width: 9.7rem;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $bp-old) {
+		&_direct {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 0;
+			margin: 2rem 0 0 0;
+			height: min-content;
+
+			&_whatsapp {
+				grid-column: 1 / -1;
+			}
+			&_mail {
+				grid-column: 1 / -1;
+			}
+			&_whatsapp,
+			&_mail {
+				&--svg {
+					width: 3rem;
+				}
+			}
+		}
+
+		&_form {
+			padding: 5rem 0.5rem;
+			&_name,
+			&_email,
+			&_phone,
+			&_describe {
+				&--input {
+					font-size: 1.3rem;
+					padding: 1.3rem 2rem;
+					width: 30rem;
+				}
+			}
+			&_describe {
+				&--input {
+					max-width: 30rem;
+				}
+			}
+			&_sample {
+				&--input {
+					width: 30rem;
+				}
+				&--label {
+					width: 9.6rem;
+				}
+			}
+
+			&_captcha {
+				width: 30rem;
+			}
+		}
+	}
+}
